@@ -1,3 +1,4 @@
+#include <array>
 #include <DemoShaderLoader.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -5,7 +6,7 @@
 #include <MeshObject.h>   
 
 // Vertex + Color data
-GLfloat vertices[] =
+const std::array<GLfloat, 15> vertices =
 {
     // positions    // colors
      0.0f,  0.8f,   1.0f, 0.0f, 0.0f,
@@ -54,14 +55,14 @@ int main()
     );
 
     // position + color
-    GLuint layout[] = { 2, 3 }; 
+    const std::array<GLuint, 2> layout = { 2, 3 };
 
     MeshObject triangle
     (
-        vertices, 
-        sizeof(vertices) / sizeof(GLfloat), 
-        layout, 
-        sizeof(layout) / sizeof(GLuint)
+        vertices.data(),
+        vertices.size(),
+        layout.data(),
+        layout.size()
     );
 
     // Print OpenGL info
