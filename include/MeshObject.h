@@ -1,5 +1,5 @@
 #pragma once
-#include <cstddef> // for size_t
+#include <cstdint>
 #include <glad/glad.h>
 
 class MeshObject
@@ -15,19 +15,19 @@ public:
     MeshObject
     (
         const GLfloat* vertices, 
-        size_t vertex_count, 
+        uint32_t vertex_count, 
         const GLuint* layout, 
-        size_t layout_count
+        uint32_t layout_count
     );
 
     MeshObject
     (
         const GLfloat* vertices, 
-        size_t vertex_count,
+        uint32_t vertex_count,
         const GLuint* layout, 
-        size_t layout_count,
+        uint32_t layout_count,
         const GLuint* indices, 
-        size_t index_count_in
+        uint32_t index_count_in
     );
     ~MeshObject();
 
@@ -39,20 +39,20 @@ private:
     void SetupMesh
     (
         const GLfloat* vertices, 
-        size_t vertex_count, 
+        uint32_t vertex_count, 
         const GLuint* layout, 
-        size_t layout_count
+        uint32_t layout_count
     );
 
     void SetupMesh
     (
         const GLfloat* vertices, 
-        size_t vertex_count,
+        uint32_t vertex_count,
         const GLuint* layout, 
-        size_t layout_count,
+        uint32_t layout_count,
         const GLuint* indices, 
-        size_t index_count_in
+        uint32_t index_count_in
     );
 
-    void SetupVertexAttributes(const GLuint* layout, size_t layout_count);
+    void SetupVertexAttributes(const GLuint* layout, uint32_t layout_count);
 };

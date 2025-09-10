@@ -6,9 +6,9 @@ MeshObject::MeshObject() = default;
 MeshObject::MeshObject
 (
     const GLfloat* vertices, 
-    size_t vertex_count, 
+    uint32_t vertex_count, 
     const GLuint* layout, 
-    size_t layout_count
+    uint32_t layout_count
 )
 {
     SetupMesh(vertices, vertex_count, layout, layout_count);
@@ -17,11 +17,11 @@ MeshObject::MeshObject
 MeshObject::MeshObject
 (
     const GLfloat* vertices, 
-    size_t vertex_count,
+    uint32_t vertex_count,
     const GLuint* layout, 
-    size_t layout_count,
+    uint32_t layout_count,
     const GLuint* indices, 
-    size_t index_count_in
+    uint32_t index_count_in
 )
 {
     b_HasEbo = true;
@@ -74,9 +74,9 @@ void MeshObject::Draw() const
 void MeshObject::SetupMesh
 (
     const GLfloat* vertices, 
-    size_t vertex_count, 
+    uint32_t vertex_count, 
     const GLuint* layout, 
-    size_t layout_count
+    uint32_t layout_count
 )
 {
     glGenVertexArrays(1, &vao);
@@ -96,8 +96,8 @@ void MeshObject::SetupMesh
 
     Unbind();
 
-    size_t stride = 0;
-    for (size_t i = 0; i < layout_count; ++i)
+    uint32_t stride = 0;
+    for (uint32_t i = 0; i < layout_count; ++i)
     {
         stride += layout[i];
     }
@@ -107,11 +107,11 @@ void MeshObject::SetupMesh
 void MeshObject::SetupMesh
 (
     const GLfloat* vertices, 
-    size_t vertex_count,
+    uint32_t vertex_count,
     const GLuint* layout, 
-    size_t layout_count,
+    uint32_t layout_count,
     const GLuint* indices, 
-    size_t index_count_in
+    uint32_t index_count_in
 )
 {
     glGenVertexArrays(1, &vao);
@@ -143,11 +143,11 @@ void MeshObject::SetupMesh
 void MeshObject::SetupVertexAttributes
 (
     const GLuint* layout, 
-    size_t layout_count
+    uint32_t layout_count
 )
 {
     GLuint stride = 0;
-    for (size_t i = 0; i < layout_count; ++i)
+    for (uint32_t i = 0; i < layout_count; ++i)
     {
         stride += layout[i];
     }

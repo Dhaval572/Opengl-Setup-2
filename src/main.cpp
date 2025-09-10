@@ -35,9 +35,8 @@ int main()
         glfwTerminate();
         return -1;
     }
-
     glfwMakeContextCurrent(window);
-
+     
     // Load OpenGL functions via GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
